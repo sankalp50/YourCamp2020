@@ -20,7 +20,7 @@ const MongoStore = require('connect-mongo')(session);
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
-const dbUrl = process.env.dbUrl;
+const dbUrl = process.env.dbUrl || 'mongodb://localhost:27017/your-camp';
 
 
 
@@ -166,5 +166,5 @@ app.use((err, req, res, next) => {
 
 const port = process.env.Port || 3000;
 app.listen(port, () => {
-    console.log(`Serving on port ${port}`);
+    console.log(`Serving on port ${port}`)
 })
