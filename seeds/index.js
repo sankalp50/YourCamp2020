@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/your-camp';
 
-mongoose.connect('mongodb://localhost:27017/your-camp', {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -22,19 +23,19 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 300; i++) {
-        const random1000 = Math.floor(Math.random() * 1000);
+        const random1000 = Math.floor(Math.random() * 100);
         const price = Math.floor(Math.random()*20)+10;
         const camp = new Campground({
             author: '608da069392e57308ca410ae',
-            location: `${cities[random1000].city}, ${cities[random1000].state}`,
+            location: `${cities[random1000].city}, ${cities[random1000].admin_name}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis est incidunt molestias magnam earum sint. Facere, quos! Esse, perspiciatis sint id consectetur, consequuntur beatae ad odit porro exercitationem modi a.',
             price,
             geometry: {
                 type: "Point",
                 coordinates: [-
-                    cities[random1000].longitude,
-                    cities[random1000].latitude
+                    cities[random1000].lng,
+                    cities[random1000].lat
                 ]
             },
             images: [
