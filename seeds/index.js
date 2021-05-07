@@ -40,11 +40,11 @@ const seedDB = async () => {
             },
             images: [
                 {
-                    url: 'https://res.cloudinary.com/dhxtntmmc/image/upload/v1619939536/YourCamp/q7btwidfpfhtslshzw23.jpg',
+                    url: 'https://res.cloudinary.com/dhxtntmmc/image/upload/v1620391958/YourCamp/e5izvc9n28x3kignxgqz.jpg',
                     filename: 'YourCamp/q7btwidfpfhtslshzw23'
                 },
                 {
-                    url: 'https://res.cloudinary.com/dhxtntmmc/image/upload/v1619939544/YourCamp/x2xltuxq2uc9sp5v63ty.jpg',
+                    url: 'https://res.cloudinary.com/dhxtntmmc/image/upload/v1620391518/YourCamp/f2kxn1rz23radmbakgh4.jpg',
                     filename: 'YourCamp/x2xltuxq2uc9sp5v63ty'
                 }
               ]
