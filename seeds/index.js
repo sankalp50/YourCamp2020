@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
@@ -26,14 +27,14 @@ const seedDB = async () => {
         const random1000 = Math.floor(Math.random() * 100);
         const price = Math.floor(Math.random()*20)+10;
         const camp = new Campground({
-            author: '60943dae2807dc1ee8ef737e',
+            author: '6093ed68b68cb73a10b13a91',
             location: `${cities[random1000].city}, ${cities[random1000].admin_name}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis est incidunt molestias magnam earum sint. Facere, quos! Esse, perspiciatis sint id consectetur, consequuntur beatae ad odit porro exercitationem modi a.',
             price,
             geometry: {
                 type: "Point",
-                coordinates: [-
+                coordinates: [
                     cities[random1000].lng,
                     cities[random1000].lat
                 ]
