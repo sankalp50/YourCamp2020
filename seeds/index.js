@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+ 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/your-camp';
 
 mongoose.connect(dbUrl, {
@@ -40,7 +44,7 @@ const seedDB = async () => {
             },
             images: [
                 {
-                    url: 'https://res.cloudinary.com/dhxtntmmc/image/upload/v1620391958/YourCamp/e5izvc9n28x3kignxgqz.jpg',
+                    url: 'https://res.cloudinary.com/dhxtntmmc/image/upload/v1620390853/YourCamp/ddedckqafhg1qtjcyegr.jpg',
                     filename: 'YourCamp/q7btwidfpfhtslshzw23'
                 },
                 {
